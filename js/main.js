@@ -1,0 +1,21 @@
+const menuOpen = document.querySelector(".menu__collapse");
+const menuClose = document.querySelector(".menu__close");
+const headerMenu = document.querySelector(".menu");
+
+menuOpen.addEventListener("click", function () {
+  headerMenu.classList.add("isOpen");
+  console.log("open");
+});
+
+menuClose.addEventListener("click", function () {
+  headerMenu.classList.remove("isOpen");
+});
+
+document.addEventListener("click", function (event) {
+  if (
+    !headerMenu.contains(event.target) && // headerMenu không chưa element khi click
+    !event.target.matches(".menu__collapse") // element khi click không phải là menuOpen
+  ) {
+    headerMenu.classList.remove("isOpen");
+  }
+});
